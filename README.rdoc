@@ -1,28 +1,37 @@
-== README
+# jd alok in ruby on rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For setting up the local environment, we need to install a few things. Lets start with node.
 
-Things you may want to cover:
+# 1. Install and setup rails.
 
-* Ruby version
+# 2. Clone this repository.
 
-* System dependencies
+Change the path to directory where you cloned the repo and do a bundle install
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+# 3. Setup configration for postgres:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Follow this link for postgres setup: https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# 4. Run migration:
+
+```
+rake db:migrate
+rake restaurants:migrate
+```
+
+# 5. Start a local server
+
+```
+rails server
+```
+
+# 6. Run the application
+
+Open localhost:3000 in Chrome
+http://localhost:3000/api/v1/restaurants/jhansi/index this is the test URL.
+
