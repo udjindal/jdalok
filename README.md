@@ -33,5 +33,9 @@ rails server
 # 6. Run the application
 
 Open localhost:3000 in Chrome
-http://localhost:3000/api/v1/restaurants/jhansi/index this is the test URL.
+GET http://localhost:3000/api/v1/restaurants/jhansi/index to index all restaurants of mentioned city.
+
+Use postman for testing POST type requests
+POST http://localhost:3000/users/registrations with params(name, email, password) for sign-up. 
+POST http://localhost:3000/users/authenticate_user with params(email, password) to sign-in. 
 
