@@ -7,4 +7,8 @@ Rails.application.routes.draw do
       post '/restaurants' => 'restaurants#create'
     end
   end
+  namespace :users, defaults: { format: :json } do
+    resources :registrations, only: :create
+    post '/authenticate_user' => 'authentications#authenticate_user'
+  end
 end
