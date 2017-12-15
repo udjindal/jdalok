@@ -13,8 +13,10 @@ namespace :mapping do
       k = 0
       if listedin > 0
               while k < listedin
+                  if data_hash["data"][i]["listedin"][k].length > 1
                   object_ls = Listedin.find_by(listedin_category: data_hash["data"][i]["listedin"][k])
                   object_map = Mapping.create(restaurant_id: i + 1 , listedin_id: object_ls.id)
+                end
                   k += 1
               end
 

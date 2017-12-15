@@ -13,10 +13,12 @@ namespace :data_listedin do
       if listedin > 0
 
               while k < listedin
-                  object_ls = Listedin.where(listedin_category: data_hash["data"][i]["listedin"][k]).first_or_create
-                  object_ls.save
+                  if data_hash["data"][i]["listedin"][k].length > 1
+                      object_ls = Listedin.where(listedin_category: data_hash["data"][i]["listedin"][k]).first_or_create
+                      object_ls.save
+                      puts data_hash["data"][i]["listedin"][k]
+                end
                   k += 1
-
               end
 
           end
