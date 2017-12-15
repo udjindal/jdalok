@@ -16,12 +16,17 @@ namespace :data do
         contacts = (data_hash["data"][i]["contact"]).length
         j = 0
         if contacts > 0
+
                 while j < contacts
                     object_c = Contact.create(restaurant_id: i + 1 , number: data_hash["data"][i]["contact"][j])
                     object_c.save
                     j += 1
                 end
+
             end
+
+
+
      i +=1
      end
  end
