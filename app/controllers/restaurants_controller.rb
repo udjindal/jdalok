@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   def index
     city = params[:city]
     restaurants = Restaurant.where(city: city.downcase)
-    render json: {restaurants: restaurants}, status: :ok
+    render json: {restaurants: restaurants.as_json(methods: [:contacts_list ,:tags])}, status: :ok
   end
 
   def show
@@ -11,7 +11,8 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    Restaurant.create(city: params[:city], nameurl: params[:url], address: params[:address], contact_info: params[:contact_info])
+    rest = Restaurant.create(city: params[:city], nameurl: params[:url], address: params[:address])
+
     render json: {msg: "Restaurant added successfully"}, status: :ok
   end
 end
