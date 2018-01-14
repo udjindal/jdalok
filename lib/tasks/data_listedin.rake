@@ -20,7 +20,6 @@ namespace :data_listedin do
                 end
                   k += 1
               end
-
           end
       i +=1
       end

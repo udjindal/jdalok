@@ -10,8 +10,17 @@ namespace :data do
      while i < num do
         #  puts "i is"
         #  puts i
-         object = Restaurant.create(city: "jhansi", url: data_hash["data"][i]["url"],name: data_hash["data"][i]["Name"], address: data_hash["data"][i]["address"])
+        a = data_hash["data"][i]["listofimages"]
+        if a == []
+            object = Restaurant.create(city: "jhansi", url: data_hash["data"][i]["url"],name: data_hash["data"][i]["Name"], address: data_hash["data"][i]["address"], hours:data_hash["data"][i]["hours"])
+            object.save
+        else
+        a = a[0]
+        b = a[/\(.*?\)/]
+        c = b[2...-2]
+         object = Restaurant.create(city: "jhansi", url: data_hash["data"][i]["url"],name: data_hash["data"][i]["Name"], address: data_hash["data"][i]["address"], hours:data_hash["data"][i]["hours"] ,image_url: c)
          object.save
+        end
         #  contact_info: data_hash["data"][i]["contact"][0]
         contacts = (data_hash["data"][i]["contact"]).length
         j = 0
